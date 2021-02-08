@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+}
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.placeholder-image {
+  width: 100%;
+}

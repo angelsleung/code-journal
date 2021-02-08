@@ -18,8 +18,30 @@
   <header>
   </header>
   <main>
-    <div data-view="entry-form">
+    <div class="entry-form" data-view="entry-form">
+      <form class="form">
+        <div class="label-div">
+          <label for="title">Title</label>
+        </div>
+        <div class="input-div">
+          <input name="title" id="title" type="text">
+        </div>
 
+        <div class="label-div">
+          <label for="photo-url">Photo URL</label>
+        </div>
+        <div class="input-div">
+          <input name="photo-url" id="photo-url" type="url">
+        </div>
+        <div class="label-div">
+          <label for="notes">Notes</label>
+        </div>
+        <div class="input-div">
+          <input name="notes" id="notes" type="textarea">
+        </div>
+
+
+      </form>
     </div>
   </main>
   <script src="js/data.js"></script>

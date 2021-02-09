@@ -1,7 +1,7 @@
 /* exported data */
 function beforeUnload(event) {
-  var entriesJSON = JSON.stringify(data.entries);
-  localStorage.setItem('entries-local-storage', entriesJSON);
+  var dataJSON = JSON.stringify(data);
+  localStorage.setItem('data-local-storage', dataJSON);
 }
 
 var data = {
@@ -11,8 +11,8 @@ var data = {
   nextEntryId: 1
 };
 
-var previousEntriesJSON = localStorage.getItem('entries-local-storage');
-if (previousEntriesJSON !== null) {
-  data.entries = JSON.parse(previousEntriesJSON);
+var previousDataJSON = localStorage.getItem('data-local-storage');
+if (previousDataJSON !== null) {
+  data = JSON.parse(previousDataJSON);
 }
 window.addEventListener('beforeunload', beforeUnload);

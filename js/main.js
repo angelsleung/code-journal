@@ -13,6 +13,7 @@ function submit(event) {
   entry.photoUrl = form.elements.photoUrl.value;
   entry.notes = form.elements.notes.value;
   entry.entryId = data.nextEntryId;
+  data.nextEntryId++;
 }
 
 var inputPhotoUrl = document.querySelector('.input-photo-url');

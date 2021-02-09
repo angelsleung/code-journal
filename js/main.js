@@ -15,6 +15,8 @@ function submit(event) {
   entry.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.shift(entry);
+  placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  form.reset();
 }
 
 var inputPhotoUrl = document.querySelector('.input-photo-url');

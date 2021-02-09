@@ -14,7 +14,7 @@ function submit(event) {
   entry.notes = form.elements.notes.value;
   entry.entryId = data.nextEntryId;
   data.nextEntryId++;
-  data.entries.shift(entry);
+  data.entries.unshift(entry);
   placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
 }

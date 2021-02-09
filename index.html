@@ -16,8 +16,54 @@
 </head>
 <body>
   <header>
+    <div class="container">
+      <h2 class="journal-header">Code Journal</h2>
+    </div>
   </header>
   <main>
+    <div class="container" data-view="entry-form">
+      <form class="form">
+        <h1 class="new-entry">New Entry</h1>
+        <div class="row">
+          <div class="column-half">
+            <img class="placeholder-image" src="images/placeholder-image-square.jpg" alt="Placeholder Image">
+          </div>
+          <div class="column-half">
+            <div class="label-input-div">
+              <div class="label-div">
+                <label for="title">Title</label>
+              </div>
+              <div class="input-div input-title">
+                <input name="title" id="title" class="input-title" type="text" required="required">
+              </div>
+            </div>
+            <div class="label-input-div">
+              <div class="label-div" >
+                <label for="photo-url">Photo URL</label>
+              </div>
+              <div class="input-div input-photo-url">
+                <input name="photoUrl" id="photo-url" class="input-photo-url" type="url" required="required">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <div class="label-input-div">
+              <div class="label-div">
+                <label for="notes">Notes</label>
+              </div>
+              <div class="input-div input-notes">
+                <textarea name="notes" id="notes" class="input-notes" rows="6" required="required"></textarea>
+              </div>
+            </div>
+            <div class="label-input-div submit-div">
+              <input value="save" type="submit" class="submit-button">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

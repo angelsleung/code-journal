@@ -24,7 +24,9 @@
   }
 
   .column-full,
-  .column-half {
+  .column-half,
+  .journal-header,
+  .new-entry {
     padding: 0 0.75rem;
   }
 

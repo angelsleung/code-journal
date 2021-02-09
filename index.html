@@ -19,7 +19,7 @@
     <h2 class="journal-header">Code Journal</h2>
   </header>
   <main>
-    <div class="entry-form" data-view="entry-form">
+    <div class="container" data-view="entry-form">
       <form class="form">
         <h1 class="new-entry">New Entry</h1>
         <div class="row">
@@ -41,25 +41,25 @@
                 <label for="photo-url">Photo URL</label>
               </div>
               <div class="input-div input-photo-url">
-                <input name="photo-url" id="photo-url" class="input-photo-url" type="url" required="required">
+                <input name="photoUrl" id="photo-url" class="input-photo-url" type="url" required="required">
               </div>
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="column">
+          <div class="column-full">
             <div class="label-input-div">
               <div class="label-div">
                 <label for="notes">Notes</label>
               </div>
               <div class="input-div input-notes">
-                <input name="notes" id="notes" class="input-notes" type="textarea" required="required">
+                <textarea name="notes" id="notes" class="input-notes" rows="6" required="required"></textarea>
               </div>
             </div>
 
-            <div class="label-input-div submit">
-              <input value="save" type="submit">
+            <div class="label-input-div submit-div">
+              <input value="save" type="submit" class="submit-button">
             </div>
           </div>
         </div>

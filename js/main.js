@@ -14,6 +14,7 @@ function submit(event) {
   entry.notes = form.elements.notes.value;
   entry.entryId = data.nextEntryId;
   data.nextEntryId++;
+  data.entries.shift(entry);
 }
 
 var inputPhotoUrl = document.querySelector('.input-photo-url');

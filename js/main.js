@@ -1,7 +1,6 @@
 /* global data */
 /* exported data */
 function updatePhoto(event) {
-
   var photoUrl = event.target.value;
   placeholderImage.setAttribute('src', photoUrl);
 }

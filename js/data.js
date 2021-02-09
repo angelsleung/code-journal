@@ -15,5 +15,4 @@ var previousEntriesJSON = localStorage.getItem('entries-local-storage');
 if (previousEntriesJSON !== null) {
   data.entries = JSON.parse(previousEntriesJSON);
 }
-
 window.addEventListener('beforeunload', beforeUnload);

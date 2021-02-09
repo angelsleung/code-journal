@@ -51,19 +51,28 @@ textarea {
   border-radius: 4px;
 }
 
-.submit-div {
-  text-align: right;
-  margin: 0.2rem 0;
+.button-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.submit-button {
+.button {
   text-transform: uppercase;
   background-color: #4a2372;
   color: white;
   font-size: 0.7em;
-  padding: 0.35rem 0.6rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
   border: none;
+}
+
+.half-row {
+  flex-basis: 50%;
+}
+
+.new-button {
+  border: 1px solid black;
 }
 
 .entries {

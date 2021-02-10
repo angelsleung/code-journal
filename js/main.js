@@ -92,10 +92,13 @@ function viewEntries(event) {
   data.view = 'entries';
 }
 
-function clickEntryList(event) {
-  if (event.target.tagName === 'I') {
-    createNewEntry();
+function editEntry(event) {
+  if (event.target.tagName !== 'I') {
+    return;
   }
+  createNewEntry();
+  var entryItem = event.target.closest('li');
+  data.editing = entryItem;
 }
 
 var entryForm = document.querySelector('.entry-form');
@@ -117,7 +120,7 @@ var inputPhotoUrl = document.querySelector('.input-photo-url');
 var placeholderImage = document.querySelector('.entry-image');
 inputPhotoUrl.addEventListener('input', updatePhoto);
 
-entryList.addEventListener('click', clickEntryList);
+entryList.addEventListener('click', editEntry);
 
 if (data.view === 'entry-form') {
   createNewEntry();

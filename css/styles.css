@@ -89,3 +89,13 @@ textarea {
 .entry-notes {
   font-size: 0.8em;
 }
+
+.nav > a,
+.button > a {
+  color: white;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}

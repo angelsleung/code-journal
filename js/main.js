@@ -70,7 +70,6 @@ function renderEntry(entry) {
   rightColumnHalf.append(entryNotes);
 
   entryItem.setAttribute('data-entry-id', entry.entryId);
-
   return entryItem;
 }
 
@@ -93,6 +92,12 @@ function viewEntries(event) {
   data.view = 'entries';
 }
 
+function clickEntryList(event) {
+  if (event.target.tagName === 'I') {
+    createNewEntry();
+  }
+}
+
 var entryForm = document.querySelector('.entry-form');
 var entries = document.querySelector('.entries');
 
@@ -111,6 +116,8 @@ form.addEventListener('submit', clickSubmit);
 var inputPhotoUrl = document.querySelector('.input-photo-url');
 var placeholderImage = document.querySelector('.entry-image');
 inputPhotoUrl.addEventListener('input', updatePhoto);
+
+entryList.addEventListener('click', clickEntryList);
 
 if (data.view === 'entry-form') {
   createNewEntry();

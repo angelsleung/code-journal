@@ -18,9 +18,44 @@ function submit(event) {
   form.reset();
 }
 
+function renderEntry(entry) {
+  var entryItem = document.createElement('li');
+  entryItem.className = 'entry';
+
+  var row = document.createElement('div');
+  row.className = 'row';
+  entryItem.append(row);
+
+  var firstColumnHalf = document.createElement('div');
+  firstColumnHalf.className = 'column-half';
+  row.append(firstColumnHalf);
+
+  var entryImage = document.createElement('img');
+  entryImage.className = 'entry-image';
+  entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  entryImage.setAttribute('alt', 'Entry Image');
+  firstColumnHalf.append(entryImage);
+
+  var secondColumnHalf = document.createElement('div');
+  secondColumnHalf.className = 'column-half';
+  row.append(secondColumnHalf);
+
+  var entryTitle = document.createElement('h2');
+  entryTitle.className = 'entry-title';
+  secondColumnHalf.append(entryTitle);
+
+  var entryNotes = document.createElement('p');
+  entryNotes.className = 'entry-note';
+  secondColumnHalf.append(entryNotes);
+
+  return entryItem;
+}
+
 var inputPhotoUrl = document.querySelector('.input-photo-url');
-var placeholderImage = document.querySelector('.placeholder-image');
+var placeholderImage = document.querySelector('.entry-image');
 inputPhotoUrl.addEventListener('input', updatePhoto);
 
 var form = document.querySelector('.form');
 form.addEventListener('submit', submit);
+
+renderEntry();

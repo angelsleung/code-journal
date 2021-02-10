@@ -67,21 +67,13 @@ textarea {
   border: none;
 }
 
-.half-row {
-  flex-basis: 50%;
-}
-
-.new-button {
-  border: 1px solid black;
-}
-
 .entries {
   padding-left: 0;
 }
 
 .entries > li {
   list-style: none;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .entry-title {

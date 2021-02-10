@@ -99,6 +99,16 @@ function editEntry(event) {
   createNewEntry();
   var entryItem = event.target.closest('li');
   data.editing = entryItem;
+
+  var entryId = entryItem.getAttribute('data-entry-id');
+  var numEntries = data.entries.length;
+  var entryIndex = numEntries - entryId;
+  var entryObject = data.entries[entryIndex];
+
+  inputTitle.value = entryObject.title;
+  inputPhotoUrl.value = entryObject.photoUrl;
+  placeholderImage.setAttribute('src', entryObject.photoUrl);
+  inputNotes.value = entryObject.notes;
 }
 
 var entryForm = document.querySelector('.entry-form');
@@ -115,6 +125,9 @@ newButton.addEventListener('click', createNewEntry);
 
 var form = document.querySelector('.form');
 form.addEventListener('submit', clickSubmit);
+
+var inputTitle = document.querySelector('.input-title');
+var inputNotes = document.querySelector('.input-notes');
 
 var inputPhotoUrl = document.querySelector('.input-photo-url');
 var placeholderImage = document.querySelector('.entry-image');

@@ -62,10 +62,13 @@ function DOMContentLoaded(event) {
 }
 
 function clickNew(event) {
-  var entryForm = document.querySelector('.entry-form-view');
-  var entries = document.querySelector('.entries-view');
   entryForm.className = 'container entry-form-view';
   entries.className = 'container entries-view hidden';
+}
+
+function clickEntriesNav(event) {
+  entryForm.className = 'container entry-form-view hidden';
+  entries.className = 'container entries-view';
 }
 
 var inputPhotoUrl = document.querySelector('.input-photo-url');
@@ -77,5 +80,10 @@ form.addEventListener('submit', clickSubmit);
 
 document.addEventListener('DOMContentLoaded', DOMContentLoaded);
 
+var entryForm = document.querySelector('.entry-form-view');
+var entries = document.querySelector('.entries-view');
 var newButton = document.querySelector('.new-entry');
 newButton.addEventListener('click', clickNew);
+
+var entriesNav = document.querySelector('.entries-nav');
+entriesNav.addEventListener('click', clickEntriesNav);

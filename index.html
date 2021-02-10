@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    crossorigin="anonymous"
+  <link rel="stylesheet" crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header>
     <div class="container">
-      <h2 class="journal-header">Code Journal</h2>
+      <div class="row">
+        <h2 class="journal-header">Code Journal</h2>
+        <nav>
+          <a href="#"><h3 class="nav entries-nav">Entries</h3></a>
+        </nav>
+      </div>
     </div>
   </header>
   <main>
-    <div class="container" data-view="entry-form">
+    <div class="container entries" data-view="entries">
+      <div class="row">
+        <div class="half-row">
+          <h1 class="page-title">Entries</h1>
+        </div>
+        <div class="half-row button-div">
+          <a href="#"><div class="new-button button">New</div></a>
+        </div>
+      </div>
+      <ul class="entry-list"></ul>
+    </div>
+    <div class="container entry-form hidden" data-view="entry-form">
       <form class="form">
-        <h1 class="new-entry">New Entry</h1>
+        <h1 class="page-title">New Entry</h1>
         <div class="row">
           <div class="column-half">
-            <img class="placeholder-image" src="images/placeholder-image-square.jpg" alt="Placeholder Image">
+            <img class="entry-image" src="images/placeholder-image-square.jpg" alt="Placeholder Image">
           </div>
           <div class="column-half">
             <div class="label-input-div">
@@ -38,7 +54,7 @@
               </div>
             </div>
             <div class="label-input-div">
-              <div class="label-div" >
+              <div class="label-div">
                 <label for="photo-url">Photo URL</label>
               </div>
               <div class="input-div input-photo-url">
@@ -57,8 +73,8 @@
                 <textarea name="notes" id="notes" class="input-notes" rows="6" required="required"></textarea>
               </div>
             </div>
-            <div class="label-input-div submit-div">
-              <input value="save" type="submit" class="submit-button">
+            <div class="label-input-div button-div">
+              <input value="save" type="submit" class="button">
             </div>
           </div>
         </div>
@@ -68,4 +84,5 @@
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

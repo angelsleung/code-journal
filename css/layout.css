@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.half-row {
+  flex-basis: 50%;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -26,7 +30,7 @@
   .column-full,
   .column-half,
   .journal-header,
-  .new-entry {
+  .page-title {
     padding: 0 0.75rem;
   }
 

@@ -77,6 +77,11 @@ textarea {
   cursor: pointer;
 }
 
+.fas.fa-edit {
+  cursor: pointer;
+  color: #4a2372;
+}
+
 .entry-list {
   padding: 0;
   margin: 0;

@@ -15,9 +15,10 @@ function clickSubmit(event) {
   data.nextEntryId++;
   data.entries.unshift(entry);
   placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  form.reset();
+  var renderedEntry = renderEntry(entry);
+  entryList.prepend(renderedEntry);
   viewEntries();
-  location.reload();
+  form.reset();
 }
 
 function renderEntry(entry) {
@@ -56,10 +57,9 @@ function renderEntry(entry) {
 }
 
 function DOMContentLoaded(event) {
-  var entries = document.querySelector('.entries');
   for (var i = 0; i < data.entries.length; i++) {
     var renderedEntry = renderEntry(data.entries[i]);
-    entries.append(renderedEntry);
+    entryList.append(renderedEntry);
   }
 }
 
@@ -75,22 +75,24 @@ function viewEntries(event) {
   data.view = 'entries';
 }
 
-var inputPhotoUrl = document.querySelector('.input-photo-url');
-var placeholderImage = document.querySelector('.entry-image');
-inputPhotoUrl.addEventListener('input', updatePhoto);
+var entryForm = document.querySelector('.entry-form');
+var entries = document.querySelector('.entries');
+
+var entryList = document.querySelector('.entry-list');
+document.addEventListener('DOMContentLoaded', DOMContentLoaded);
+
+var entriesNav = document.querySelector('.entries-nav');
+entriesNav.addEventListener('click', viewEntries);
+
+var newButton = document.querySelector('.new-button');
+newButton.addEventListener('click', createNewEntry);
 
 var form = document.querySelector('.form');
 form.addEventListener('submit', clickSubmit);
 
-document.addEventListener('DOMContentLoaded', DOMContentLoaded);
-
-var entryForm = document.querySelector('.entry-form');
-var entries = document.querySelector('.entries');
-var newButton = document.querySelector('.new-entry');
-newButton.addEventListener('click', createNewEntry);
-
-var entriesNav = document.querySelector('.entries-nav');
-entriesNav.addEventListener('click', viewEntries);
+var inputPhotoUrl = document.querySelector('.input-photo-url');
+var placeholderImage = document.querySelector('.entry-image');
+inputPhotoUrl.addEventListener('input', updatePhoto);
 
 if (data.view === 'entry-form') {
   createNewEntry();

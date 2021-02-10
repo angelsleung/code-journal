@@ -25,33 +25,49 @@ function renderEntry(entry) {
   var entryItem = document.createElement('li');
   entryItem.className = 'entry';
 
-  var row = document.createElement('div');
-  row.className = 'row';
-  entryItem.append(row);
+  var entryRow = document.createElement('div');
+  entryRow.className = 'row';
+  entryItem.append(entryRow);
 
-  var firstColumnHalf = document.createElement('div');
-  firstColumnHalf.className = 'column-half';
-  row.append(firstColumnHalf);
+  var leftColumnHalf = document.createElement('div');
+  leftColumnHalf.className = 'column-half';
+  entryRow.append(leftColumnHalf);
 
   var entryImage = document.createElement('img');
   entryImage.className = 'entry-image';
   entryImage.setAttribute('src', entry.photoUrl);
   entryImage.setAttribute('alt', 'Entry Image');
-  firstColumnHalf.append(entryImage);
+  leftColumnHalf.append(entryImage);
 
-  var secondColumnHalf = document.createElement('div');
-  secondColumnHalf.className = 'column-half';
-  row.append(secondColumnHalf);
+  var rightColumnHalf = document.createElement('div');
+  rightColumnHalf.className = 'column-half';
+  entryRow.append(rightColumnHalf);
+
+  var entryTitleRow = document.createElement('div');
+  entryTitleRow.className = 'row';
+  rightColumnHalf.append(entryTitleRow);
+
+  var entryTitleLeftHalf = document.createElement('div');
+  entryTitleLeftHalf.className = 'half-row';
+  entryTitleRow.append(entryTitleLeftHalf);
+
+  var entryTitleRightHalf = document.createElement('div');
+  entryTitleRightHalf.className = 'half-row button-div';
+  entryTitleRow.append(entryTitleRightHalf);
 
   var entryTitle = document.createElement('h2');
   entryTitle.className = 'entry-title';
   entryTitle.textContent = entry.title;
-  secondColumnHalf.append(entryTitle);
+  entryTitleLeftHalf.append(entryTitle);
+
+  var editIcon = document.createElement('i');
+  editIcon.className = 'fas fa-edit';
+  entryTitleRightHalf.append(editIcon);
 
   var entryNotes = document.createElement('p');
   entryNotes.className = 'entry-notes';
   entryNotes.textContent = entry.notes;
-  secondColumnHalf.append(entryNotes);
+  rightColumnHalf.append(entryNotes);
 
   return entryItem;
 }

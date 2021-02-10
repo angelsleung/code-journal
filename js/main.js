@@ -47,7 +47,7 @@ function renderEntry(entry) {
   secondColumnHalf.append(entryTitle);
 
   var entryNotes = document.createElement('p');
-  entryNotes.className = 'entry-note';
+  entryNotes.className = 'entry-notes';
   entryNotes.textContent = entry.notes;
   secondColumnHalf.append(entryNotes);
 
@@ -62,14 +62,16 @@ function DOMContentLoaded(event) {
   }
 }
 
-function clickNew(event) {
-  entryForm.className = 'container entry-form-view';
-  entries.className = 'container entries-view hidden';
+function createNewEntry(event) {
+  entryForm.className = 'container entry-form';
+  entries.className = 'container entries hidden';
+  data.view = 'entry-form';
 }
 
 function viewEntries(event) {
-  entryForm.className = 'container entry-form-view hidden';
-  entries.className = 'container entries-view';
+  entryForm.className = 'container entry-form hidden';
+  entries.className = 'container entries';
+  data.view = 'entries';
 }
 
 var inputPhotoUrl = document.querySelector('.input-photo-url');
@@ -81,10 +83,16 @@ form.addEventListener('submit', clickSubmit);
 
 document.addEventListener('DOMContentLoaded', DOMContentLoaded);
 
-var entryForm = document.querySelector('.entry-form-view');
-var entries = document.querySelector('.entries-view');
+var entryForm = document.querySelector('.entry-form');
+var entries = document.querySelector('.entries');
 var newButton = document.querySelector('.new-entry');
-newButton.addEventListener('click', clickNew);
+newButton.addEventListener('click', createNewEntry);
 
 var entriesNav = document.querySelector('.entries-nav');
 entriesNav.addEventListener('click', viewEntries);
+
+if (data.view === 'entry-form') {
+  createNewEntry();
+} else {
+  viewEntries();
+}

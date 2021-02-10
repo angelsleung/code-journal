@@ -73,18 +73,19 @@ textarea {
   border: none;
 }
 
-.entries {
+.entry-list {
   padding-left: 0;
   margin: 0;
 }
 
-.entries > li {
+.entry {
   list-style: none;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .entry-title {
   font-size: 1em;
+  line-height: 0.5em;
 }
 
 .entry-notes {

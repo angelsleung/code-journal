@@ -69,6 +69,8 @@ function renderEntry(entry) {
   entryNotes.textContent = entry.notes;
   rightColumnHalf.append(entryNotes);
 
+  entryItem.setAttribute('data-entry-id', entry.entryId);
+
   return entryItem;
 }
 

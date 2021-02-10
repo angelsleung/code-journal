@@ -16,6 +16,7 @@ function clickSubmit(event) {
   data.entries.unshift(entry);
   placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
+  viewEntries();
 }
 
 function renderEntry(entry) {
@@ -66,7 +67,7 @@ function clickNew(event) {
   entries.className = 'container entries-view hidden';
 }
 
-function clickEntriesNav(event) {
+function viewEntries(event) {
   entryForm.className = 'container entry-form-view hidden';
   entries.className = 'container entries-view';
 }
@@ -86,4 +87,4 @@ var newButton = document.querySelector('.new-entry');
 newButton.addEventListener('click', clickNew);
 
 var entriesNav = document.querySelector('.entries-nav');
-entriesNav.addEventListener('click', clickEntriesNav);
+entriesNav.addEventListener('click', viewEntries);

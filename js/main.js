@@ -17,6 +17,7 @@ function clickSubmit(event) {
   placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
   viewEntries();
+  location.reload();
 }
 
 function renderEntry(entry) {

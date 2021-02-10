@@ -17,6 +17,12 @@ body {
   font-size: 0.8em;
 }
 
+.nav {
+  font-weight: normal;
+  font-size: 0.7em;
+  padding: 0 3em;
+}
+
 .page-title {
   font-size: 1.2em;
 }

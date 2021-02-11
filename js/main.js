@@ -132,7 +132,11 @@ function getEntryObject(entryListElement) {
 }
 
 function confirmDelete(event) {
-  deletePopUp.className = 'confirm-delete';
+  deletePopUp.className = 'delete-confirmation';
+}
+
+function cancelDelete(event) {
+  deletePopUp.className = 'delete-confirmation hidden';
 }
 
 var entryForm = document.querySelector('.entry-form');
@@ -159,9 +163,12 @@ inputPhotoUrl.addEventListener('input', updatePhoto);
 
 entryList.addEventListener('click', editEntry);
 
-var deletePopUp = document.querySelector('.confirm-delete');
+var deletePopUp = document.querySelector('.delete-confirmation');
 var deleteButton = document.querySelector('.delete-div');
 deleteButton.addEventListener('click', confirmDelete);
+
+var cancelButton = document.querySelector('cancel');
+cancelButton.addEventListener('click', cancelDelete);
 
 if (data.view === 'entry-form') {
   viewEntryForm();

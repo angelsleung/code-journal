@@ -140,7 +140,7 @@ nav > a,
   height: 100%;
 }
 
-.confirm-delete {
+.delete-confirmation {
   position: absolute;
   width: 17rem;
   border: 1px solid black;
@@ -151,7 +151,7 @@ nav > a,
   text-align: center;
 }
 
-.confirm-delete-text {
+.delete-confirmation-text {
   font-size: 0.8em;
   padding-bottom: 0.5rem;
   width: 100%;

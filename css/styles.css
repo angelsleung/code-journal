@@ -91,11 +91,12 @@ textarea {
 
 .entry-title {
   font-size: 0.9em;
-  line-height: 0.5em;
+  line-height: 0.2em;
 }
 
 .entry-notes {
   font-size: 0.8em;
+  line-height: 0.2em;
 }
 
 nav > a,

@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.column-full {
+  display: flex;
+}
+
 .half-row {
   flex-basis: 50%;
 }

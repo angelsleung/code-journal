@@ -35,6 +35,7 @@ body {
 
 .label-input-div {
   padding: 0.2rem 0;
+  width: 100%;
 }
 
 .label-div {
@@ -106,4 +107,17 @@ nav > a,
 .button-div > a {
   color: white;
   text-decoration: none;
+}
+
+.delete {
+  font-size: 0.8em;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+.delete-div {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }

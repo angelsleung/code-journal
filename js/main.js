@@ -101,6 +101,7 @@ function viewEntries(event) {
   entryForm.className = 'container entry-form hidden';
   entries.className = 'container entries';
   data.view = 'entries';
+  deleteButton.className = 'delete-div hidden';
 }
 
 function editEntry(event) {
@@ -108,6 +109,8 @@ function editEntry(event) {
     return;
   }
   viewEntryForm();
+  deleteButton.className = 'delete-div';
+
   var entryListElement = event.target.closest('li');
   data.editing = entryListElement;
   var entryObject = getEntryObject(entryListElement);
@@ -151,6 +154,8 @@ var placeholderImage = document.querySelector('.entry-image');
 inputPhotoUrl.addEventListener('input', updatePhoto);
 
 entryList.addEventListener('click', editEntry);
+
+var deleteButton = document.querySelector('.delete-div');
 
 if (data.view === 'entry-form') {
   viewEntryForm();

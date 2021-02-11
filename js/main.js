@@ -9,35 +9,27 @@ function clickSave(event) {
   event.preventDefault();
   if (data.editing === null) {
     var entryObject = {};
-    entryObject.title = form.elements.title.value;
-    entryObject.photoUrl = form.elements.photoUrl.value;
-    entryObject.notes = form.elements.notes.value;
     entryObject.entryId = data.nextEntryId;
-    data.nextEntryId++;
-    data.entries.unshift(entryObject);
-    placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-    var renderedEntry = renderEntry(entryObject);
-    entryList.prepend(renderedEntry);
   } else {
     var entryListElement = data.editing;
     entryObject = getEntryObject(entryListElement);
-    entryObject.title = form.elements.title.value;
-    entryObject.photoUrl = form.elements.photoUrl.value;
-    entryObject.notes = form.elements.notes.value;
-    entryObject.entryId = data.nextEntryId;
+  }
+  entryObject.title = form.elements.title.value;
+  entryObject.photoUrl = form.elements.photoUrl.value;
+  entryObject.notes = form.elements.notes.value;
+  placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  var renderedEntry = renderEntry(entryObject);
+
+  if (data.editing === null) {
+    entryList.prepend(renderedEntry);
+    data.entries.unshift(entryObject);
+    data.nextEntryId++;
+  } else {
+    entryListElement.replaceWith(renderedEntry);
     data.editing = null;
   }
-
   viewEntries();
   form.reset();
-}
-
-function getEntryObject(entryListElement) {
-  var entryId = entryListElement.getAttribute('data-entry-id');
-  var numEntries = data.entries.length;
-  var entryIndex = numEntries - entryId;
-  var entryObject = data.entries[entryIndex];
-  return entryObject;
 }
 
 function renderEntry(entry) {
@@ -124,6 +116,14 @@ function editEntry(event) {
   inputPhotoUrl.value = entryObject.photoUrl;
   placeholderImage.setAttribute('src', entryObject.photoUrl);
   inputNotes.value = entryObject.notes;
+}
+
+function getEntryObject(entryListElement) {
+  var entryId = entryListElement.getAttribute('data-entry-id');
+  var numEntries = data.entries.length;
+  var entryIndex = numEntries - entryId;
+  var entryObject = data.entries[entryIndex];
+  return entryObject;
 }
 
 var entryForm = document.querySelector('.entry-form');

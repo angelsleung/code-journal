@@ -26,10 +26,10 @@ function clickSave(event) {
     data.nextEntryId++;
   } else {
     entryListElement.replaceWith(renderedEntry);
-    data.editing = null;
   }
   viewEntries();
   form.reset();
+  data.editing = null;
 }
 
 function renderEntry(entry) {
@@ -72,7 +72,7 @@ function renderEntry(entry) {
   entryTitleLeftHalf.append(entryTitle);
 
   var editIcon = document.createElement('i');
-  editIcon.className = 'fas fa-edit';
+  editIcon.className = 'fas fa-edit edit-icon';
   entryTitleRightHalf.append(editIcon);
 
   var entryNotes = document.createElement('p');
@@ -119,11 +119,13 @@ function editEntry(event) {
 }
 
 function getEntryObject(entryListElement) {
-  var entryId = entryListElement.getAttribute('data-entry-id');
-  var numEntries = data.entries.length;
-  var entryIndex = numEntries - entryId;
-  var entryObject = data.entries[entryIndex];
-  return entryObject;
+  var entryId = parseInt(entryListElement.getAttribute('data-entry-id'));
+  for (var i = 0; i < data.entries.length; i++) {
+    if (entryId === data.entries[i].entryId) {
+      var entryObject = data.entries[i];
+      return entryObject;
+    }
+  }
 }
 
 var entryForm = document.querySelector('.entry-form');

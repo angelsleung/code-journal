@@ -15,13 +15,17 @@
 </head>
 
 <body>
+
   <header>
+
     <div class="container">
+
       <div class="row">
         <h2 class="journal-header">Code Journal</h2>
         <nav>
           <a href="#"><h3 class="nav entries-nav">Entries</h3></a>
         </nav>
+
       </div>
     </div>
   </header>
@@ -31,15 +35,35 @@
         <div class="half-row">
           <h1 class="page-title">Entries</h1>
         </div>
-        <div class="half-row button-div">
-          <a href="#"><div class="new-button button">New</div></a>
+        <div class="half-row button-div right">
+          <a href="#"><button class="new-button purple button">New</button></a>
         </div>
       </div>
       <ul class="entry-list"></ul>
     </div>
+
     <div class="container entry-form hidden" data-view="entry-form">
+
       <form class="form">
         <h1 class="page-title">New Entry</h1>
+        <div class="confirm-delete hidden">
+          <div class="row center">
+            <p class="confirm-delete-text">Are you sure you want to delete this entry?</p>
+          </div>
+          <div class="row">
+            <div class="half-row">
+              <div class="button-div left">
+                <button class="cancel button">Cancel</button>
+              </div>
+
+            </div>
+            <div class="half-row">
+              <div class="button-div right">
+                <button class="confirm button">Confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="column-half">
             <img class="entry-image" src="images/placeholder-image-square.jpg" alt="Placeholder Image">
@@ -85,8 +109,8 @@
               </div>
             </div>
             <div class="half-row">
-              <div class="label-input-div button-div">
-                <input value="save" type="submit" class="button">
+              <div class="label-input-div button-div right">
+                <input value="save" type="submit" class="purple button">
               </div>
             </div>
           </div>
@@ -94,6 +118,7 @@
       </form>
     </div>
   </main>
+
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

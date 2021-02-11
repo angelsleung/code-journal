@@ -63,7 +63,7 @@ function renderEntry(entry) {
   entryTitleRow.append(entryTitleLeftHalf);
 
   var entryTitleRightHalf = document.createElement('div');
-  entryTitleRightHalf.className = 'half-row button-div';
+  entryTitleRightHalf.className = 'half-row button-div right';
   entryTitleRow.append(entryTitleRightHalf);
 
   var entryTitle = document.createElement('h2');
@@ -131,6 +131,10 @@ function getEntryObject(entryListElement) {
   }
 }
 
+function confirmDelete(event) {
+  deletePopUp.className = 'confirm-delete';
+}
+
 var entryForm = document.querySelector('.entry-form');
 var entries = document.querySelector('.entries');
 
@@ -155,7 +159,9 @@ inputPhotoUrl.addEventListener('input', updatePhoto);
 
 entryList.addEventListener('click', editEntry);
 
+var deletePopUp = document.querySelector('.confirm-delete');
 var deleteButton = document.querySelector('.delete-div');
+deleteButton.addEventListener('click', confirmDelete);
 
 if (data.view === 'entry-form') {
   viewEntryForm();

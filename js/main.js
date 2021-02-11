@@ -5,29 +5,48 @@ function updatePhoto(event) {
   placeholderImage.setAttribute('src', photoUrl);
 }
 
-function clickSubmit(event) {
+function clickSave(event) {
   event.preventDefault();
-  var entry = {};
-  entry.title = form.elements.title.value;
-  entry.photoUrl = form.elements.photoUrl.value;
-  entry.notes = form.elements.notes.value;
-  entry.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(entry);
-  placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  var renderedEntry = renderEntry(entry);
-  entryList.prepend(renderedEntry);
+  if (data.editing === null) {
+    var entryObject = {};
+    entryObject.title = form.elements.title.value;
+    entryObject.photoUrl = form.elements.photoUrl.value;
+    entryObject.notes = form.elements.notes.value;
+    entryObject.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(entryObject);
+    placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+    var renderedEntry = renderEntry(entryObject);
+    entryList.prepend(renderedEntry);
+  } else {
+    var entryListElement = data.editing;
+    entryObject = getEntryObject(entryListElement);
+    entryObject.title = form.elements.title.value;
+    entryObject.photoUrl = form.elements.photoUrl.value;
+    entryObject.notes = form.elements.notes.value;
+    entryObject.entryId = data.nextEntryId;
+    data.editing = null;
+  }
+
   viewEntries();
   form.reset();
 }
 
+function getEntryObject(entryListElement) {
+  var entryId = entryListElement.getAttribute('data-entry-id');
+  var numEntries = data.entries.length;
+  var entryIndex = numEntries - entryId;
+  var entryObject = data.entries[entryIndex];
+  return entryObject;
+}
+
 function renderEntry(entry) {
-  var entryItem = document.createElement('li');
-  entryItem.className = 'entry';
+  var entryListElement = document.createElement('li');
+  entryListElement.className = 'entry';
 
   var entryRow = document.createElement('div');
   entryRow.className = 'row';
-  entryItem.append(entryRow);
+  entryListElement.append(entryRow);
 
   var leftColumnHalf = document.createElement('div');
   leftColumnHalf.className = 'column-half';
@@ -69,8 +88,8 @@ function renderEntry(entry) {
   entryNotes.textContent = entry.notes;
   rightColumnHalf.append(entryNotes);
 
-  entryItem.setAttribute('data-entry-id', entry.entryId);
-  return entryItem;
+  entryListElement.setAttribute('data-entry-id', entry.entryId);
+  return entryListElement;
 }
 
 function DOMContentLoaded(event) {
@@ -80,7 +99,7 @@ function DOMContentLoaded(event) {
   }
 }
 
-function createNewEntry(event) {
+function viewEntryForm(event) {
   entryForm.className = 'container entry-form';
   entries.className = 'container entries hidden';
   data.view = 'entry-form';
@@ -96,14 +115,10 @@ function editEntry(event) {
   if (event.target.tagName !== 'I') {
     return;
   }
-  createNewEntry();
-  var entryItem = event.target.closest('li');
-  data.editing = entryItem;
-
-  var entryId = entryItem.getAttribute('data-entry-id');
-  var numEntries = data.entries.length;
-  var entryIndex = numEntries - entryId;
-  var entryObject = data.entries[entryIndex];
+  viewEntryForm();
+  var entryListElement = event.target.closest('li');
+  data.editing = entryListElement;
+  var entryObject = getEntryObject(entryListElement);
 
   inputTitle.value = entryObject.title;
   inputPhotoUrl.value = entryObject.photoUrl;
@@ -121,10 +136,10 @@ var entriesNav = document.querySelector('.entries-nav');
 entriesNav.addEventListener('click', viewEntries);
 
 var newButton = document.querySelector('.new-button');
-newButton.addEventListener('click', createNewEntry);
+newButton.addEventListener('click', viewEntryForm);
 
 var form = document.querySelector('.form');
-form.addEventListener('submit', clickSubmit);
+form.addEventListener('submit', clickSave);
 
 var inputTitle = document.querySelector('.input-title');
 var inputNotes = document.querySelector('.input-notes');
@@ -136,7 +151,7 @@ inputPhotoUrl.addEventListener('input', updatePhoto);
 entryList.addEventListener('click', editEntry);
 
 if (data.view === 'entry-form') {
-  createNewEntry();
+  viewEntryForm();
 } else {
   viewEntries();
 }

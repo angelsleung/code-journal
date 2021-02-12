@@ -23,10 +23,6 @@ body {
   padding: 0.05rem 2rem;
 }
 
-.form {
-  position: relative;
-}
-
 .page-title {
   font-size: 1.2em;
 }
@@ -127,31 +123,27 @@ nav > a,
   text-decoration: none;
 }
 
+.delete-button-div {
+  display: flex;
+}
+
 .delete-button {
   font-size: 0.8em;
   font-weight: normal;
-  padding: 0;
-  margin: 0;
-}
-
-.delete-button-div {
-  align-items: center;
-  height: 100%;
+  margin-top: 0.3rem;
 }
 
 .delete-confirmation-div {
   width: 100%;
   height: 100%;
-  text-align: center;
+  justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 2rem;
   display: flex;
 }
 
 .delete-confirmation {
-  width: 17rem;
-  border: 1px solid black;
+  width: 18rem;
   border-radius: 4px;
   background-color: #f4f1f5;
   padding: 1rem 0.8rem;
@@ -173,9 +165,9 @@ nav > a,
   color: white;
 }
 
-/* .overlay {
+.overlay {
   width: 100%;
   height: 100%;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.8);
-} */
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+}

@@ -131,6 +131,11 @@ nav > a,
   font-size: 0.8em;
   font-weight: normal;
   margin-top: 0.3rem;
+  color: rgb(238, 71, 11);
+}
+
+.delete-button-div > a {
+  color: rgb(238, 71, 11);
 }
 
 .delete-confirmation-div {

@@ -160,9 +160,7 @@ function confirmDelete(event) {
       data.entries.splice(i, 1);
     }
   }
-  deletePopUp.className = 'delete-confirmation-div hidden';
-  overlay.className = 'overlay hidden';
-  placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  cancelDelete();
   viewEntries();
 }
 

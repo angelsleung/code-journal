@@ -20,7 +20,7 @@ body {
 .nav {
   font-weight: normal;
   font-size: 0.7em;
-  padding: 0.05rem 2rem;
+  padding: 0.08rem 2rem 0;
 }
 
 .page-title {

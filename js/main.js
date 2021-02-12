@@ -17,7 +17,6 @@ function clickSave(event) {
   entryObject.title = form.elements.title.value;
   entryObject.photoUrl = form.elements.photoUrl.value;
   entryObject.notes = form.elements.notes.value;
-  placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   var renderedEntry = renderEntry(entryObject);
 
   if (data.editing === null) {
@@ -28,8 +27,8 @@ function clickSave(event) {
     entryListElement.replaceWith(renderedEntry);
   }
   viewEntries();
+  placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   form.reset();
-  data.editing = null;
 }
 
 function renderEntry(entry) {
@@ -102,6 +101,7 @@ function viewEntries(event) {
   entries.className = 'container entries';
   data.view = 'entries';
   deleteButton.className = 'delete-div hidden';
+  data.editing = null;
 }
 
 function editEntry(event) {
@@ -122,9 +122,9 @@ function editEntry(event) {
 }
 
 function getEntryObject(entryListElement) {
-  var entryId = parseInt(entryListElement.getAttribute('data-entry-id'));
+  var entryId = entryListElement.getAttribute('data-entry-id');
   for (var i = 0; i < data.entries.length; i++) {
-    if (entryId === data.entries[i].entryId) {
+    if (entryId === data.entries[i].entryId.toString()) {
       var entryObject = data.entries[i];
       return entryObject;
     }
@@ -150,10 +150,14 @@ function confirmDelete(event) {
     }
   }
   for (i = 0; i < data.entries.length; i++) {
-    if (data.entries[i].entryId === entryId) {
+    if (entryId === data.entries[i].entryId.toString()) {
       data.entries.splice(i, 1);
     }
   }
+  deletePopUp.className = 'delete-confirmation-div hidden';
+  placeholderImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  form.reset();
+  viewEntries();
 }
 
 var entryForm = document.querySelector('.entry-form');

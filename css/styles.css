@@ -127,28 +127,34 @@ nav > a,
   text-decoration: none;
 }
 
-.delete {
+.delete-button {
   font-size: 0.8em;
   font-weight: normal;
   padding: 0;
   margin: 0;
 }
 
-.delete-div {
-  display: flex;
+.delete-button-div {
   align-items: center;
   height: 100%;
 }
 
+.delete-confirmation-div {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  position: fixed;
+  bottom: 2rem;
+  display: flex;
+}
+
 .delete-confirmation {
-  position: absolute;
   width: 17rem;
   border: 1px solid black;
   border-radius: 4px;
   background-color: #f4f1f5;
-  top: 20%;
   padding: 1rem 0.8rem;
-  text-align: center;
 }
 
 .delete-confirmation-text {

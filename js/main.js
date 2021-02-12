@@ -131,12 +131,29 @@ function getEntryObject(entryListElement) {
   }
 }
 
-function confirmDelete(event) {
-  deletePopUp.className = 'delete-confirmation';
+function clickDelete(event) {
+  deletePopUp.className = 'delete-confirmation-div';
 }
 
 function cancelDelete(event) {
-  deletePopUp.className = 'delete-confirmation hidden';
+  deletePopUp.className = 'delete-confirmation-div hidden';
+}
+
+function confirmDelete(event) {
+  var entryListElement = data.editing;
+  var entryId = entryListElement.getAttribute('data-entry-id');
+
+  var entryNodeList = document.querySelectorAll('.entry');
+  for (var i = 0; i < entryNodeList.length; i++) {
+    if (entryNodeList[i].getAttribute('data-entry-id') === entryId) {
+      entryNodeList[i].remove();
+    }
+  }
+  for (i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === entryId) {
+      data.entries.splice(i, 1);
+    }
+  }
 }
 
 var entryForm = document.querySelector('.entry-form');
@@ -163,12 +180,15 @@ inputPhotoUrl.addEventListener('input', updatePhoto);
 
 entryList.addEventListener('click', editEntry);
 
-var deletePopUp = document.querySelector('.delete-confirmation');
-var deleteButton = document.querySelector('.delete-div');
-deleteButton.addEventListener('click', confirmDelete);
+var deletePopUp = document.querySelector('.delete-confirmation-div');
+var deleteButton = document.querySelector('.delete-button-div');
+deleteButton.addEventListener('click', clickDelete);
 
-var cancelButton = document.querySelector('cancel');
-cancelButton.addEventListener('click', cancelDelete);
+var cancelDeleteButton = document.querySelector('.cancel');
+cancelDeleteButton.addEventListener('click', cancelDelete);
+
+var confirmDeleteButton = document.querySelector('.confirm');
+confirmDeleteButton.addEventListener('click', confirmDelete);
 
 if (data.view === 'entry-form') {
   viewEntryForm();
